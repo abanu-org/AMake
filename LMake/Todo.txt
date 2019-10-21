@@ -1,0 +1,8 @@
+add grammar and ast
+add default properties:
+     -?
+add default buildtask:
+MsBuild ..
+Nuget ...
+
+add ability to run specific target in cmd else the target entry will executet
