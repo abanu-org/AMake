@@ -1,0 +1,7 @@
+﻿@namespace LMake.Core
+@classname BuildScriptGrammar
+@using LMake.Core.AST
+
+@start identifier
+
+identifier<Symbol> = id:("" ([a-zA-Z_][a-zA-Z_0-9]*)) {GSymbol.Get(id)}
