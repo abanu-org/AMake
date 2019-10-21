@@ -1,1 +1,25 @@
-﻿
+﻿props:
+	message = "hello world"
+
+entry:
+	print: $(message)
+	cmd: git submodule update --recursive
+	cmd: git pull
+	cmd: nuget restore
+	msbuild {
+		target: "build"
+		project: test.csproj
+	}
+	cmd: mosa {
+		enableOptimisations: true
+	}
+	call: debug
+
+debug:
+	cmd: quemu
+	call clean :afterclose {
+		mode: "fullclean"
+	}
+
+clean(mode):
+	cmd: msbuild clean 
